@@ -116,12 +116,13 @@
 				var target = document.getElementById('analysisConsultationCenter');
 				var data;
 				var options = {
-					title: '帰国者・接触者相談センターの相談件数等(都道府県別)の割合(期間2月1日~3月19日) 以下、帰国者・接触者を省略',
+					title: '帰国者・接触者相談センターの相談件数等(都道府県別)の割合(期間2月1日~3月19日) ',
+					legend: { position: 'top', maxLines: 3, textStyle: { fontSize: 12 } },
 					vAxis: {
 						title: '都道府県'
 					},
 					hAxis: {
-						title: 'パーセント(%)\n(注)暫定値(3月20日までに都道府県から報告された数の合計であり、\n順次アップデートされるため、数値が変動する)',
+						title: 'パーセント(%)\n(注)暫定値(3月20日までに都道府県から報告された数の合計であり、順次アップデートされるため、数値が変動する)\n相談=帰国者・接触者相談センター相談の略\n外来=帰国者・接触者外来の略',
 						format: 'percent',
 						slantedText: true,
 						slantedTextAngle: 90
