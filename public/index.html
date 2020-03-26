@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div class="container">
+		<div id="japanMap" style="width: 800px; height: 500px;"></div>
 		<div id="pcr"></div>
 		<div id="consultationCenter"></div>
 		<div id="analysisConsultationCenter"></div>
@@ -21,6 +22,118 @@
   <script>
     (function() {
       'use strict';
+
+			function drawRegionsMap() {
+				var data = google.visualization.arrayToDataTable([
+
+          ['都道府県', '患者数'],
+
+          ['北海道', 162],
+
+          ['青森', 0],
+
+          ['秋田', 0],
+
+          ['岩手', 0],
+
+          ['宮城', 0],
+
+          ['山形', 0],
+
+          ['福島', 0],
+
+          ['栃木', 0],
+
+          ['群馬', 0],
+
+          ['茨城', 0],
+
+          ['東京', 160],
+
+          ['埼玉', 0],
+
+          ['千葉', 0],
+
+          ['神奈川', 0],
+
+          ['静岡', 0],
+
+          ['愛知', 139],
+
+          ['岐阜', 0],
+
+          ['三重', 0],
+
+          ['滋賀', 0],
+
+          ['京都', 0],
+
+          ['大阪', 0],
+
+          ['奈良', 0],
+
+          ['和歌山', 0],
+
+          ['兵庫', 0],
+
+          ['徳島', 0],
+
+          ['香川', 0],
+
+          ['愛媛', 0],
+
+          ['高知', 0],
+
+          ['福岡', 0],
+
+          ['佐賀', 0],
+
+          ['長崎', 0],
+
+          ['大分', 0],
+
+          ['熊本', 0],
+
+          ['宮崎', 0],
+
+          ['鹿児島',0],
+
+          ['沖縄', 0],
+
+          ['岡山', 0],
+
+          ['広島', 0],
+
+          ['山口', 0],
+
+          ['鳥取', 0],
+
+          ['島根', 0],
+
+          ['石川', 0],
+
+          ['福井', 0],
+
+          ['富山', 0],
+
+          ['山梨', 0],
+
+          ['長野', 0],
+
+          ['新潟', 0]
+
+        ]);
+
+        var options = {
+	    		region: 'JP',
+					resolution: 'provinces',
+					legend: 'none'
+				};
+
+        var chart = new google.visualization.GeoChart(document.getElementById('japanMap'));
+
+        chart.draw(data, options)
+			}
 
       function drawChartForPcr() {
 				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
@@ -112,7 +225,8 @@
         chart.draw(data, options);
       }
 
-      google.charts.load('current', {packages: ['corechart'], 'language': 'ja'});
+      google.charts.load('current', {packages: ['corechart', 'geochart'], 'language': 'ja'});
+      google.charts.setOnLoadCallback(drawRegionsMap);
       google.charts.setOnLoadCallback(drawChartForPcr);
       google.charts.setOnLoadCallback(drawChartForConsultationCenter);
       google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
