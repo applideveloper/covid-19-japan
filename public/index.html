@@ -9,6 +9,7 @@
 	<div class="container">
 		<div id="pcr"></div>
 		<div id="consultationCenter"></div>
+		<div id="analysisConsultationCenter"></div>
 	</div>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script>
@@ -31,12 +32,21 @@
         query.send(handleQueryResponseForConsultationCenter);
 			}
 
+			function drawChartForAnalysisConsultationCenter() {
+        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+        var sheetName = 'sheet4'
+        var url = spreadsheetUrl + '&sheet=' + sheetName; 
+        var query = new google.visualization.Query(url);
+        query.send(handleQueryResponseForAnalysisConsultationCenter);
+			}
+
       function handleQueryResponseForPCR(response) {
         var target = document.getElementById('pcr');
         var data;
         var options = {
           title: '国内における新型コロナウィルスに係るPCRの検査の実施状況(2/13~3/22)',
-          width: 800,
+					subtitle: '暫定値（３月22日までに自治体等から回答があった数の合計であり、順次アップデートされるため、数値が変動する：３月23日集計）',
+					width: 800,
           height: 500,
 					hAxis: {
 						format: 'MM/dd',
@@ -53,7 +63,26 @@
         var target = document.getElementById('consultationCenter');
         var data;
         var options = {
-          title: '国内における新型コロナウィルスに係るPCRの検査の実施状況(2/13~3/22)',
+          title: '帰国者・接触者相談センターの相談件数等(都道府県別)(期間2月1日~3月19日)',
+					subtitle: '(注)暫定値(3月20日までに都道府県から報告された数の合計であり、順次アップデートされるため、数値が変動する)',
+          width: 800,
+          height: 2000,
+					hAxis: {
+						slantedText: true,
+						slantedTextAngle: 90
+					},
+        };
+        var chart = new google.visualization.BarChart(target);
+        data = response.getDataTable();
+        chart.draw(data, options);
+      }
+
+      function handleQueryResponseForAnalysisConsultationCenter(response) {
+        var target = document.getElementById('analysisConsultationCenter');
+        var data;
+        var options = {
+          title: '帰国者・接触者相談センターの相談件数等(都道府県別)の分析(期間2月1日~3月19日)',
+					subtitle: '(注)暫定値(3月20日までに都道府県から報告された数の合計であり、順次アップデートされるため、数値が変動する)',
           width: 800,
           height: 2000,
 					hAxis: {
@@ -69,6 +98,7 @@
       google.charts.load('current', {packages: ['corechart'], 'language': 'ja'});
       google.charts.setOnLoadCallback(drawChartForPcr);
       google.charts.setOnLoadCallback(drawChartForConsultationCenter);
+      google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
     })();
   </script>
 </body>
