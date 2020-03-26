@@ -13,10 +13,10 @@
 <body>
 	<div class="container">
 		<div><b>新型コロナウィルス感染症(国内事例)の状況(累積)(無症状病原体保有者を除く)(単位:人)</b></div>
-		<div id="japanMap" style="width: 800px; height: 500px;"></div>
-		<div id="pcr"></div>
-		<div id="consultationCenter"></div>
-		<div id="analysisConsultationCenter"></div>
+		<div id="japanMap" style="width: 100%; height: 500px;"></div>
+		<div id="pcr" style="width: 100%; height: 600px;"></div>
+		<div id="consultationCenter" style="width: 100%; height: 2000px;"></div>
+		<div id="analysisConsultationCenter" style="width: 100%; height: 2000px;"></div>
 	</div>
 	<footer><a href="https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing">情報元</a></footer>
   	<script src="https://www.gstatic.com/charts/loader.js"></script>
@@ -76,8 +76,6 @@
 				var data;
 				var options = {
 					title: '国内における新型コロナウィルスに係るPCRの検査の実施状況\n(期間2/13~3/22)',
-					width: 800,
-					height: 600,
 					legend: { position: 'top', maxLines: 3 },
 					vAxis: {
 						title: 'PCRの実施件数'
@@ -99,8 +97,6 @@
 				var data;
 				var options = {
 					title: '帰国者・接触者相談センターの相談件数等(都道府県別)\n(期間2月1日~3月19日) 以下、帰国者・接触者を省略',
-					width: 800,
-					height: 2000,
 					legend: { position: 'top', maxLines: 3 },
 					vAxis: {
 						title: '都道府県'
@@ -121,9 +117,6 @@
 				var data;
 				var options = {
 					title: '帰国者・接触者相談センターの相談件数等(都道府県別)の割合(期間2月1日~3月19日) 以下、帰国者・接触者を省略',
-					width: 800,
-					height: 2000,
-					legend: { position: 'top', maxLines: 3 },
 					vAxis: {
 						title: '都道府県'
 					},
@@ -144,6 +137,13 @@
 			google.charts.setOnLoadCallback(drawChartForPcr);
 			google.charts.setOnLoadCallback(drawChartForConsultationCenter);
 			google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
+
+			window.onresize = function() {
+				drawJapanCoronaPatientMap();
+				drawChartForPcr();
+				drawChartForConsultationCenter();
+				drawChartForAnalysisConsultationCenter();
+			}
 		})();
 	</script>
 </body>
