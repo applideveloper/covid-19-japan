@@ -18,154 +18,65 @@
 		<div id="analysisConsultationCenter"></div>
 	</div>
 	<footer><a href="https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing">情報元</a></footer>
-  <script src="https://www.gstatic.com/charts/loader.js"></script>
-  <script>
-    (function() {
-      'use strict';
+  	<script src="https://www.gstatic.com/charts/loader.js"></script>
+  	<script>
+		(function() {
+		'use strict';
 
-			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable([
-
-          ['都道府県', '患者数'],
-
-          ['北海道', 162],
-
-          ['青森', 0],
-
-          ['秋田', 0],
-
-          ['岩手', 0],
-
-          ['宮城', 0],
-
-          ['山形', 0],
-
-          ['福島', 0],
-
-          ['栃木', 0],
-
-          ['群馬', 0],
-
-          ['茨城', 0],
-
-          ['東京', 160],
-
-          ['埼玉', 0],
-
-          ['千葉', 0],
-
-          ['神奈川', 0],
-
-          ['静岡', 0],
-
-          ['愛知', 139],
-
-          ['岐阜', 0],
-
-          ['三重', 0],
-
-          ['滋賀', 0],
-
-          ['京都', 0],
-
-          ['大阪', 0],
-
-          ['奈良', 0],
-
-          ['和歌山', 0],
-
-          ['兵庫', 0],
-
-          ['徳島', 0],
-
-          ['香川', 0],
-
-          ['愛媛', 0],
-
-          ['高知', 0],
-
-          ['福岡', 0],
-
-          ['佐賀', 0],
-
-          ['長崎', 0],
-
-          ['大分', 0],
-
-          ['熊本', 0],
-
-          ['宮崎', 0],
-
-          ['鹿児島',0],
-
-          ['沖縄', 0],
-
-          ['岡山', 0],
-
-          ['広島', 0],
-
-          ['山口', 0],
-
-          ['鳥取', 0],
-
-          ['島根', 0],
-
-          ['石川', 0],
-
-          ['福井', 0],
-
-          ['富山', 0],
-
-          ['山梨', 0],
-
-          ['長野', 0],
-
-          ['新潟', 0]
-
-        ]);
-
-        var options = {
-	    		region: 'JP',
-					resolution: 'provinces',
-					legend: 'none'
-				};
-
-        var chart = new google.visualization.GeoChart(document.getElementById('japanMap'));
-
-        chart.draw(data, options)
+			function drawJapanCoronaPatientMap() {
+				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+				var sheetName = 'sheet5'
+				var url = spreadsheetUrl + '&sheet=' + sheetName; 
+				var query = new google.visualization.Query(url);
+				query.send(handleQueryResponseForJapanCoronaPatientMap);				
 			}
 
-      function drawChartForPcr() {
+			function drawChartForPcr() {
 				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
 				var sheetName = 'sheet2'
 				var url = spreadsheetUrl + '&sheet=' + sheetName; 
 				var query = new google.visualization.Query(url);
 				query.send(handleQueryResponseForPCR);
-      }
+			}
 
 			function drawChartForConsultationCenter() {
-        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-        var sheetName = 'sheet3'
-        var url = spreadsheetUrl + '&sheet=' + sheetName; 
-        var query = new google.visualization.Query(url);
-        query.send(handleQueryResponseForConsultationCenter);
+				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+				var sheetName = 'sheet3'
+				var url = spreadsheetUrl + '&sheet=' + sheetName; 
+				var query = new google.visualization.Query(url);
+				query.send(handleQueryResponseForConsultationCenter);
 			}
 
 			function drawChartForAnalysisConsultationCenter() {
-        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-        var sheetName = 'sheet4'
-        var url = spreadsheetUrl + '&sheet=' + sheetName; 
-        var query = new google.visualization.Query(url);
-        query.send(handleQueryResponseForAnalysisConsultationCenter);
+				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+				var sheetName = 'sheet4'
+				var url = spreadsheetUrl + '&sheet=' + sheetName; 
+				var query = new google.visualization.Query(url);
+				query.send(handleQueryResponseForAnalysisConsultationCenter);
 			}
 
-      function handleQueryResponseForPCR(response) {
-        var target = document.getElementById('pcr');
-        var data;
-        var options = {
-          title: '国内における新型コロナウィルスに係るPCRの検査の実施状況\n(期間2/13~3/22)',
+			function handleQueryResponseForJapanCoronaPatientMap(response) {
+				var target = document.getElementById('japanMap');
+				var data;
+				var options = {
+					region: 'JP',
+					resolution: 'provinces',
+					legend: 'none',
+					colorAxis: { colors: ['#ffff00', '#ff0000'] }
+				};
+
+				var chart = new google.visualization.GeoChart(target);
+				data = response.getDataTable();
+				chart.draw(data, options)
+			}
+
+			function handleQueryResponseForPCR(response) {
+				var target = document.getElementById('pcr');
+				var data;
+				var options = {
+					title: '国内における新型コロナウィルスに係るPCRの検査の実施状況\n(期間2/13~3/22)',
 					width: 800,
-          height: 600,
+					height: 600,
 					legend: { position: 'top', maxLines: 3 },
 					vAxis: {
 						title: 'PCRの実施件数'
@@ -176,19 +87,19 @@
 						slantedText: true,
 						slantedTextAngle: 90
 					},
-        };
-        var chart = new google.visualization.LineChart(target);
-        data = response.getDataTable();
-        chart.draw(data, options);
-      }
+				};
+				var chart = new google.visualization.LineChart(target);
+				data = response.getDataTable();
+				chart.draw(data, options);
+			}
 
-      function handleQueryResponseForConsultationCenter(response) {
-        var target = document.getElementById('consultationCenter');
-        var data;
-        var options = {
-          title: '帰国者・接触者相談センターの相談件数等(都道府県別)\n(期間2月1日~3月19日)',
-          width: 800,
-          height: 2000,
+			function handleQueryResponseForConsultationCenter(response) {
+				var target = document.getElementById('consultationCenter');
+				var data;
+				var options = {
+					title: '帰国者・接触者相談センターの相談件数等(都道府県別)\n(期間2月1日~3月19日)',
+					width: 800,
+					height: 2000,
 					vAxis: {
 						title: '都道府県'
 					},
@@ -197,19 +108,19 @@
 						slantedText: true,
 						slantedTextAngle: 90
 					},
-        };
-        var chart = new google.visualization.BarChart(target);
-        data = response.getDataTable();
-        chart.draw(data, options);
-      }
+				};
+				var chart = new google.visualization.BarChart(target);
+				data = response.getDataTable();
+				chart.draw(data, options);
+			}
 
-      function handleQueryResponseForAnalysisConsultationCenter(response) {
-        var target = document.getElementById('analysisConsultationCenter');
-        var data;
-        var options = {
-          title: '帰国者・接触者相談センターの相談件数等(都道府県別)の分析\n(期間2月1日~3月19日)',
-          width: 800,
-          height: 2000,
+			function handleQueryResponseForAnalysisConsultationCenter(response) {
+				var target = document.getElementById('analysisConsultationCenter');
+				var data;
+				var options = {
+					title: '帰国者・接触者相談センターの相談件数等(都道府県別)の分析\n(期間2月1日~3月19日)',
+					width: 800,
+					height: 2000,
 					vAxis: {
 						title: '都道府県'
 					},
@@ -219,18 +130,18 @@
 						slantedText: true,
 						slantedTextAngle: 90
 					},
-        };
-        var chart = new google.visualization.BarChart(target);
-        data = response.getDataTable();
-        chart.draw(data, options);
-      }
+				};
+				var chart = new google.visualization.BarChart(target);
+				data = response.getDataTable();
+				chart.draw(data, options);
+			}
 
-      google.charts.load('current', {packages: ['corechart', 'geochart'], 'language': 'ja'});
-      google.charts.setOnLoadCallback(drawRegionsMap);
-      google.charts.setOnLoadCallback(drawChartForPcr);
-      google.charts.setOnLoadCallback(drawChartForConsultationCenter);
-      google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
-    })();
-  </script>
+			google.charts.load('current', {packages: ['corechart', 'geochart'], 'language': 'ja'});
+			google.charts.setOnLoadCallback(drawJapanCoronaPatientMap);
+			google.charts.setOnLoadCallback(drawChartForPcr);
+			google.charts.setOnLoadCallback(drawChartForConsultationCenter);
+			google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
+		})();
+	</script>
 </body>
 </html>
