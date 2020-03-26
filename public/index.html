@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+	<title>Covid-19 Japan</title>	
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+	<div class="container">
+		<div id="target"></div>
+	</div>
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      function drawChart() {
+				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+				var sheetName = 'sheet2'
+				var url = spreadsheetUrl + '&sheet=' + sheetName; 
+				var query = new google.visualization.Query(url);
+				query.send(handleQueryResponse);
+      }
+
+      function handleQueryResponse(response) {
+        var target = document.getElementById('target');
+        var data;
+        var options = {
+          title: '国内における新型コロナウィルスに係るPCRの検査の実施状況(2/13~3/22)',
+          width: 800,
+          height: 500,
+					hAxis: {
+						format: 'MM/dd',
+						slantedText: true,
+						slantedTextAngle: 90
+					},
+        };
+        var chart = new google.visualization.LineChart(target);
+        data = response.getDataTable();
+        chart.draw(data, options);
+      }
+
+      google.charts.load('current', {packages: ['corechart'], 'language': 'ja'});
+      google.charts.setOnLoadCallback(drawChart);
+    })();
+  </script>
+</body>
+</html>
