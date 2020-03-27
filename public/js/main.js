@@ -76,7 +76,7 @@
         var target = document.getElementById('japanCoronaPatientChart');
         var data;
         var options = {
-            title: '日本全国のコロナウィルス感染者数とPCR検査実施件数の累計の推移\n(クルー船船上員・乗客と空港検疫を除く)',
+            title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の累計の推移\n(クルー船船上員・乗客と空港検疫を除く)',
             legend: { position: 'top', maxLines: 3 },
             hAxis: {
                 title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
@@ -94,7 +94,7 @@
         var target = document.getElementById('japanDailyCoronaChart');
         var data;
         var options = {
-            title: '日本全国のコロナウィルス感染者数とPCR検査実施件数の日別の推移\n(クルー船船上員・乗客と空港検疫を除く)',
+            title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の日別の推移\n(クルー船船上員・乗客と空港検疫を除く)',
             legend: { position: 'top', maxLines: 3 },
             hAxis: {
                 title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
