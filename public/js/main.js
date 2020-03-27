@@ -112,7 +112,6 @@
         var target = document.getElementById('tokyoDailyCoronaChart');
         var data;
         var options = {
-            title: '東京のコロナ陽性と検査実施人数\n(注)医療機関が保険適用で行った検査は含まれていない\n(注)チャーター機帰国者、クルーズ船乗客等は含まれていない\n(注)速報値として公開するものであり、後日データとして修正される可能性あり',
             legend: { position: 'top', maxLines: 3 },
             hAxis: {
                 title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
