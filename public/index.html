@@ -52,7 +52,7 @@
 
 			function drawChartForPcr() {
 				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-				var sheetName = 'sheet2'
+				var sheetName = 'PCR'
 				var url = spreadsheetUrl + '&sheet=' + sheetName; 
 				var query = new google.visualization.Query(url);
 				query.send(handleQueryResponseForPCR);
@@ -60,7 +60,7 @@
 
 			function drawChartForConsultationCenter() {
 				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-				var sheetName = 'sheet3'
+				var sheetName = 'PCRbyPrefecture'
 				var url = spreadsheetUrl + '&sheet=' + sheetName; 
 				var query = new google.visualization.Query(url);
 				query.send(handleQueryResponseForConsultationCenter);
@@ -68,7 +68,7 @@
 
 			function drawChartForAnalysisConsultationCenter() {
 				var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-				var sheetName = 'sheet4'
+				var sheetName = 'AnalysisPCRbyPrefecture'
 				var url = spreadsheetUrl + '&sheet=' + sheetName; 
 				var query = new google.visualization.Query(url);
 				query.send(handleQueryResponseForAnalysisConsultationCenter);
