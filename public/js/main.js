@@ -58,7 +58,7 @@
     }
 
     function handleQueryResponseForJapanCoronaPatientMap(response) {
-        var target = document.getElementById('japanCoronaPatientMap');
+        var target = document.getElementById('JapanCoronaPatientMap');
         var data;
         var options = {
             region: 'JP',
@@ -73,7 +73,7 @@
     }
 
     function handleQueryResponseForJapanCoronaPatientChart(response) {
-        var target = document.getElementById('japanCoronaPatientChart');
+        var target = document.getElementById('JapanCoronaPatientChart');
         var data;
         var options = {
             title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の累計の推移\n(クルー船船上員・乗客と空港検疫を除く)',
@@ -91,7 +91,7 @@
     }
 
     function handleQueryResponseForJapanDailyCoronaChart(response) {
-        var target = document.getElementById('japanDailyCoronaChart');
+        var target = document.getElementById('JapanDailyCoronaChart');
         var data;
         var options = {
             title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の日別の推移\n(クルー船船上員・乗客と空港検疫を除く)',
@@ -109,7 +109,7 @@
     }
 
     function handleQueryResponseForTokyoDailyCoronaChart(response) {
-        var target = document.getElementById('tokyoDailyCoronaChart');
+        var target = document.getElementById('TokyoDailyCoronaChart');
         var data;
         var options = {
             legend: { position: 'top', maxLines: 3 },
@@ -126,7 +126,7 @@
     }
 
     function handleQueryResponseForPCR(response) {
-        var target = document.getElementById('pcr');
+        var target = document.getElementById('PCR');
         var data;
         var options = {
             title: '国内における新型コロナウィルスに係るPCRの検査の実施状況\n(期間2/13~3/22)',
@@ -147,7 +147,7 @@
     }
 
     function handleQueryResponseForConsultationCenter(response) {
-        var target = document.getElementById('consultationCenter');
+        var target = document.getElementById('ConsultationCenter');
         var data;
         var options = {
             title: '帰国者・接触者相談センターの相談件数等(都道府県別)\n(期間2月1日~3月19日) 以下、帰国者・接触者を省略',
@@ -167,7 +167,7 @@
     }
 
     function handleQueryResponseForAnalysisConsultationCenter(response) {
-        var target = document.getElementById('analysisConsultationCenter');
+        var target = document.getElementById('AnalysisConsultationCenter');
         var data;
         var options = {
             title: '帰国者・接触者相談センターの相談件数等(都道府県別)の割合(期間2月1日~3月19日) ',
