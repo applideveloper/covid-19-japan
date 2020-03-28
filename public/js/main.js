@@ -17,6 +17,14 @@
         query.send(handleQueryResponseForJapanCoronaByPrefecture);
     }
 
+    function drawChartForTokyoDailyCoronaChart() {
+        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+        var sheetName = 'TokyoDailyCoronaChart'
+        var url = spreadsheetUrl + '&sheet=' + sheetName; 
+        var query = new google.visualization.Query(url);
+        query.send(handleQueryResponseForTokyoDailyCoronaChart);				
+    }
+
     function drawChartForJapanCoronaPatient() {
         var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
         var sheetName = 'JapanCoronaPatientChart'
@@ -31,14 +39,6 @@
         var url = spreadsheetUrl + '&sheet=' + sheetName; 
         var query = new google.visualization.Query(url);
         query.send(handleQueryResponseForJapanDailyCoronaChart);				
-    }
-
-    function drawChartForTokyoDailyCoronaChart() {
-        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
-        var sheetName = 'TokyoDailyCoronaChart'
-        var url = spreadsheetUrl + '&sheet=' + sheetName; 
-        var query = new google.visualization.Query(url);
-        query.send(handleQueryResponseForTokyoDailyCoronaChart);				
     }
 
     function drawChartForPcr() {
@@ -145,7 +145,7 @@
                 slantedTextAngle: 90
             },
         };
-        var chart = new google.visualization.LineChart(target);
+        var chart = new google.visualization.ColumnChart(target);
         data = response.getDataTable();
         chart.draw(data, options);
     }
@@ -215,9 +215,9 @@
     google.charts.load('current', {packages: ['corechart', 'geochart'], 'language': 'ja'});
     google.charts.setOnLoadCallback(drawMapForJapanCoronaPatient);
     google.charts.setOnLoadCallback(drawMapForJapanCoronaByPrefecture);
+    google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
     google.charts.setOnLoadCallback(drawChartForJapanCoronaPatient);
     google.charts.setOnLoadCallback(drawChartForJapanDailyCoronaChart);
-    google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
     google.charts.setOnLoadCallback(drawChartForPcr);
     google.charts.setOnLoadCallback(drawChartForConsultationCenter);
     google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
@@ -225,9 +225,9 @@
     window.onresize = function() {
         drawMapForJapanCoronaPatient();
         drawMapForJapanCoronaByPrefecture();
+        drawChartForTokyoDailyCoronaChart();
         drawChartForJapanCoronaPatient();	
         drawChartForJapanDailyCoronaChart();
-        drawChartForTokyoDailyCoronaChart();
         drawChartForPcr();
         drawChartForConsultationCenter();
         drawChartForAnalysisConsultationCenter();
