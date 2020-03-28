@@ -9,6 +9,14 @@
         query.send(handleQueryResponseForJapanCoronaPatientMap);				
     }
 
+    function drawMapForJapanCoronaByPrefecture() {
+        var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+        var sheetName = 'JapanCoronaByPrefecture'
+        var url = spreadsheetUrl + '&sheet=' + sheetName; 
+        var query = new google.visualization.Query(url);
+        query.send(handleQueryResponseForJapanCoronaByPrefecture);
+    }
+
     function drawChartForJapanCoronaPatient() {
         var spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
         var sheetName = 'JapanCoronaPatientChart'
@@ -70,6 +78,23 @@
         var chart = new google.visualization.GeoChart(target);
         data = response.getDataTable();
         chart.draw(data, options)
+    }
+
+    function handleQueryResponseForJapanCoronaByPrefecture(response) {
+        var target = document.getElementById('JapanCoronaByPrefecture');
+        var data;
+        var options = {
+            title: '新型コロナウイルス感染症（国内事例）の状況（累積）（無症状病原体保有者を除く）（単位：人）３月27日12：00時点',
+            legend: { position: 'top', maxLines: 3 },
+            hAxis: {
+                title: '陽性者数\n暫定値（順次アップデートされるため、数値が変動する）',
+                slantedText: true,
+                slantedTextAngle: 90
+            },
+        };
+        var chart = new google.visualization.BarChart(target);
+        data = response.getDataTable();
+        chart.draw(data, options);
     }
 
     function handleQueryResponseForJapanCoronaPatientChart(response) {
@@ -189,6 +214,7 @@
 
     google.charts.load('current', {packages: ['corechart', 'geochart'], 'language': 'ja'});
     google.charts.setOnLoadCallback(drawMapForJapanCoronaPatient);
+    google.charts.setOnLoadCallback(drawMapForJapanCoronaByPrefecture);
     google.charts.setOnLoadCallback(drawChartForJapanCoronaPatient);
     google.charts.setOnLoadCallback(drawChartForJapanDailyCoronaChart);
     google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
@@ -198,6 +224,7 @@
 
     window.onresize = function() {
         drawMapForJapanCoronaPatient();
+        drawMapForJapanCoronaByPrefecture();
         drawChartForJapanCoronaPatient();	
         drawChartForJapanDailyCoronaChart();
         drawChartForTokyoDailyCoronaChart();
