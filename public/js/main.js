@@ -29,11 +29,6 @@
     drawChart(sheetName, handleQueryResponseForJapanCoronaPatientChart);
   }
 
-  function drawChartForJapanDailyCoronaChart() {
-    const sheetName = 'JapanDailyCoronaChart'
-    drawChart(sheetName, handleQueryResponseForJapanDailyCoronaChart);
-  }
-
   function drawChartForPcr() {
     const sheetName = 'PCR'
     drawChart(sheetName, handleQueryResponseForPCR);
@@ -85,25 +80,7 @@
     const target = document.getElementById('JapanCoronaPatientChart');
     var data;
     const options = {
-      title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の累計の推移\n(クルー船船上員・乗客と空港検疫を除く)',
-      legend: { position: 'top', maxLines: 3 },
-      hAxis: {
-        title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
-        format: 'MM/dd',
-        slantedText: true,
-        slantedTextAngle: 90
-      },
-    };
-    const chart = new google.visualization.LineChart(target);
-    data = response.getDataTable();
-    chart.draw(data, options);
-  }
-
-  function handleQueryResponseForJapanDailyCoronaChart(response) {
-    const target = document.getElementById('JapanDailyCoronaChart');
-    var data;
-    const options = {
-      title: '日本全国のコロナウィルス感染者数とPCR検査実施件数(人数ではない)の日別の推移\n(クルー船船上員・乗客と空港検疫を除く)',
+      title: '日本全国のコロナウィルス感染者数の累計の推移\n(クルー船船上員・乗客と空港検疫を除く)',
       legend: { position: 'top', maxLines: 3 },
       hAxis: {
         title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
@@ -201,7 +178,6 @@
   google.charts.setOnLoadCallback(drawMapForJapanCoronaByPrefecture);
   google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
   google.charts.setOnLoadCallback(drawChartForJapanCoronaPatient);
-  google.charts.setOnLoadCallback(drawChartForJapanDailyCoronaChart);
   google.charts.setOnLoadCallback(drawChartForPcr);
   google.charts.setOnLoadCallback(drawChartForConsultationCenter);
   google.charts.setOnLoadCallback(drawChartForAnalysisConsultationCenter);
@@ -211,7 +187,6 @@
     drawMapForJapanCoronaByPrefecture();
     drawChartForTokyoDailyCoronaChart();
     drawChartForJapanCoronaPatient();	
-    drawChartForJapanDailyCoronaChart();
     drawChartForPcr();
     drawChartForConsultationCenter();
     drawChartForAnalysisConsultationCenter();
