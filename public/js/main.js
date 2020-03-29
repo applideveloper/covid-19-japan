@@ -3,60 +3,50 @@
 
    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
 
+  function drawChart(sheetName, handleQuery) {
+    const url = spreadsheetUrl + '&sheet=' + sheetName;
+    const query = new google.visualization.Query(url);
+    query.send(handleQuery);
+  }
+
   function drawMapForJapanCoronaPatient() {
     const sheetName = 'JapanCoronaPatientMap'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForJapanCoronaPatientMap);				
+    drawChart(sheetName, handleQueryResponseForJapanCoronaPatientMap);
   }
 
   function drawMapForJapanCoronaByPrefecture() {
     const sheetName = 'JapanCoronaByPrefecture'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForJapanCoronaByPrefecture);
+    drawChart(sheetName, handleQueryResponseForJapanCoronaByPrefecture);
   }
 
   function drawChartForTokyoDailyCoronaChart() {
     const sheetName = 'TokyoDailyCoronaChart'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForTokyoDailyCoronaChart);				
+    drawChart(sheetName, handleQueryResponseForTokyoDailyCoronaChart);
   }
 
   function drawChartForJapanCoronaPatient() {
     const sheetName = 'JapanCoronaPatientChart'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForJapanCoronaPatientChart);				
+    drawChart(sheetName, handleQueryResponseForJapanCoronaPatientChart);
   }
 
   function drawChartForJapanDailyCoronaChart() {
     const sheetName = 'JapanDailyCoronaChart'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForJapanDailyCoronaChart);				
+    drawChart(sheetName, handleQueryResponseForJapanDailyCoronaChart);
   }
 
   function drawChartForPcr() {
     const sheetName = 'PCR'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForPCR);
+    drawChart(sheetName, handleQueryResponseForPCR);
   }
 
   function drawChartForConsultationCenter() {
     const sheetName = 'PCRbyPrefecture'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForConsultationCenter);
+    drawChart(sheetName, handleQueryResponseForConsultationCenter);
   }
 
   function drawChartForAnalysisConsultationCenter() {
     const sheetName = 'AnalysisPCRbyPrefecture'
-    const url = spreadsheetUrl + '&sheet=' + sheetName; 
-    const query = new google.visualization.Query(url);
-    query.send(handleQueryResponseForAnalysisConsultationCenter);
+    drawChart(sheetName, handleQueryResponseForAnalysisConsultationCenter);
   }
 
   function handleQueryResponseForJapanCoronaPatientMap(response) {
