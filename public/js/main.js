@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 
+   const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
+
   function drawMapForJapanCoronaPatient() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'JapanCoronaPatientMap'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -10,7 +11,6 @@
   }
 
   function drawMapForJapanCoronaByPrefecture() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'JapanCoronaByPrefecture'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -18,7 +18,6 @@
   }
 
   function drawChartForTokyoDailyCoronaChart() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'TokyoDailyCoronaChart'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -26,7 +25,6 @@
   }
 
   function drawChartForJapanCoronaPatient() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'JapanCoronaPatientChart'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -34,7 +32,6 @@
   }
 
   function drawChartForJapanDailyCoronaChart() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'JapanDailyCoronaChart'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -42,7 +39,6 @@
   }
 
   function drawChartForPcr() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'PCR'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -50,7 +46,6 @@
   }
 
   function drawChartForConsultationCenter() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'PCRbyPrefecture'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
@@ -58,7 +53,6 @@
   }
 
   function drawChartForAnalysisConsultationCenter() {
-    const spreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1Cz4VBQUwaupGSEdTu-MFS8EcxS4wriaNamxZZcVB4Ok/edit?usp=sharing';
     const sheetName = 'AnalysisPCRbyPrefecture'
     const url = spreadsheetUrl + '&sheet=' + sheetName; 
     const query = new google.visualization.Query(url);
