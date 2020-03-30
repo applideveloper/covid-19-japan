@@ -22,3 +22,6 @@ https://www.mhlw.go.jp/content/10906000/000611439.pdf
 
 ## 国内における新型コロナウイルスに係るPCR検査の実施状況(３月23日集計)
 https://www.mhlw.go.jp/content/10906000/000612050.pdf
+
+## 東京都 新型コロナウイルス陽性患者発表詳細
+https://catalog.data.metro.tokyo.lg.jp/dataset/t000010d0000000068

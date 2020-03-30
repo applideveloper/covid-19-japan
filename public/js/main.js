@@ -24,6 +24,11 @@
     drawChart(sheetName, handleQueryResponseForTokyoDailyCoronaChart);
   }
 
+  function drawChartForTokyoCoronaByAgeChart() {
+    const sheetName = 'TokyoCoronaByAgeChart'
+    drawChart(sheetName, handleQueryResponseForTokyoCoronaByAgeChart);
+  }
+
   function drawChartForJapanCoronaPatient() {
     const sheetName = 'JapanCoronaPatientChart'
     drawChart(sheetName, handleQueryResponseForJapanCoronaPatientChart);
@@ -111,6 +116,22 @@
     chart.draw(data, options);
   }
 
+  function handleQueryResponseForTokyoCoronaByAgeChart(response) {
+    const target = document.getElementById('TokyoCoronaByAgeChart');
+    var data;
+    const options = {
+      legend: { position: 'top', maxLines: 3 },
+      hAxis: {
+        title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
+        slantedText: true,
+        slantedTextAngle: 90
+      },
+    };
+    const chart = new google.visualization.ColumnChart(target);
+    data = response.getDataTable();
+    chart.draw(data, options);
+  }
+
   function handleQueryResponseForPCR(response) {
     const target = document.getElementById('PCR');
     var data;
@@ -177,6 +198,7 @@
   google.charts.setOnLoadCallback(drawMapForJapanCoronaPatient);
   google.charts.setOnLoadCallback(drawMapForJapanCoronaByPrefecture);
   google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
+  google.charts.setOnLoadCallback(drawChartForTokyoCoronaByAgeChart);
   google.charts.setOnLoadCallback(drawChartForJapanCoronaPatient);
   google.charts.setOnLoadCallback(drawChartForPcr);
   google.charts.setOnLoadCallback(drawChartForConsultationCenter);
@@ -186,6 +208,7 @@
     drawMapForJapanCoronaPatient();
     drawMapForJapanCoronaByPrefecture();
     drawChartForTokyoDailyCoronaChart();
+    drawChartForTokyoCoronaByAgeChart();
     drawChartForJapanCoronaPatient();	
     drawChartForPcr();
     drawChartForConsultationCenter();
