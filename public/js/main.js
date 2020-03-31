@@ -68,7 +68,7 @@
     const target = document.getElementById('JapanCoronaByPrefecture');
     var data;
     const options = {
-      title: '新型コロナウイルス感染症（国内事例）の状況（累積）（無症状病原体保有者を除く）（単位：人）３月28日12：00時点',
+      title: '新型コロナウイルス感染症（国内事例）の状況（累積）（無症状病原体保有者を除く）（単位：人）３月30日12：00時点',
       legend: { position: 'top', maxLines: 3 },
       hAxis: {
         title: '陽性者数\n暫定値（順次アップデートされるため、数値が変動する）',
