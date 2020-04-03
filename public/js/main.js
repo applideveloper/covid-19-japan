@@ -121,7 +121,7 @@
     var data;
     const options = {
       legend: { position: 'top', maxLines: 3 },
-      title: '東京都の陽性者の年代別(３月30日08:30更新情報)',
+      title: '東京都の陽性者の年代別(4月2日20:00更新情報)',
       hAxis: {
         title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
         slantedText: true,
