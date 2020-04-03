@@ -43,5 +43,28 @@
 	</footer>
   <script src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="js/main.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+       https://firebase.google.com/docs/web/setup#available-libraries -->
+  <script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCSI2niQV1-zk2p8p0X1VDoMM01-YmVXqU",
+      authDomain: "covid-19-japan.firebaseapp.com",
+      databaseURL: "https://covid-19-japan.firebaseio.com",
+      projectId: "covid-19-japan",
+      storageBucket: "covid-19-japan.appspot.com",
+      messagingSenderId: "76033861977",
+      appId: "1:76033861977:web:40191924d1e9a46ed24448",
+      measurementId: "G-5PY1LZWCTE"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+  </script>
 </body>
 </html>
