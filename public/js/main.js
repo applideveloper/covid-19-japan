@@ -55,6 +55,7 @@
     const options = {
       region: 'JP',
       resolution: 'provinces',
+      legend: 'none',
       colorAxis: { colors: ['#ffff00', '#ff0000'] }
     };
 
