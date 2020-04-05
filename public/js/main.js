@@ -24,9 +24,9 @@
     drawChart(sheetName, handleQueryResponseForTokyoDailyCoronaChart);
   }
 
-  function drawChartForTokyoCoronaByAgeChart() {
-    const sheetName = 'TokyoCoronaByAgeChart'
-    drawChart(sheetName, handleQueryResponseForTokyoCoronaByAgeChart);
+  function drawChartForJapanCoronaByAgeChart() {
+    const sheetName = 'JapanCoronaByAgeChart'
+    drawChart(sheetName, handleQueryResponseForJapanCoronaByAgeChart);
   }
 
   function drawChartForJapanCoronaPatient() {
@@ -116,17 +116,18 @@
     chart.draw(data, options);
   }
 
-  function handleQueryResponseForTokyoCoronaByAgeChart(response) {
-    const target = document.getElementById('TokyoCoronaByAgeChart');
+  function handleQueryResponseForJapanCoronaByAgeChart(response) {
+    const target = document.getElementById('JapanCoronaByAgeChart');
     var data;
     const options = {
       legend: { position: 'top', maxLines: 3 },
-      title: '東京都の陽性者の年代別(4月4日20:30更新情報)',
+      title: '年齢階級別陽性者数(4月3日18:00更新情報)',
       hAxis: {
-        title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
+        title: '年代\n暫定値（順次アップデートされるため、数値が変動する）',
         slantedText: true,
-        slantedTextAngle: 90
+        slantedTextAngle: 90,
       },
+      isStacked: true
     };
     const chart = new google.visualization.ColumnChart(target);
     data = response.getDataTable();
@@ -199,7 +200,7 @@
   google.charts.setOnLoadCallback(drawMapForJapanCoronaPatient);
   google.charts.setOnLoadCallback(drawMapForJapanCoronaByPrefecture);
   google.charts.setOnLoadCallback(drawChartForTokyoDailyCoronaChart);
-  google.charts.setOnLoadCallback(drawChartForTokyoCoronaByAgeChart);
+  google.charts.setOnLoadCallback(drawChartForJapanCoronaByAgeChart);
   google.charts.setOnLoadCallback(drawChartForJapanCoronaPatient);
   google.charts.setOnLoadCallback(drawChartForPcr);
   google.charts.setOnLoadCallback(drawChartForConsultationCenter);
@@ -209,7 +210,7 @@
     drawMapForJapanCoronaPatient();
     drawMapForJapanCoronaByPrefecture();
     drawChartForTokyoDailyCoronaChart();
-    drawChartForTokyoCoronaByAgeChart();
+    drawChartForJapanCoronaByAgeChart();
     drawChartForJapanCoronaPatient();	
     drawChartForPcr();
     drawChartForConsultationCenter();
