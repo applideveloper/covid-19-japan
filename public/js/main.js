@@ -68,7 +68,7 @@
     const target = document.getElementById('JapanCoronaByPrefecture');
     var data;
     const options = {
-      title: '新型コロナウイルス感染症（国内事例）の状況（累積）（無症状病原体保有者を除く）（単位：人）4月2日12：00時点',
+      title: '新型コロナウイルス感染症（国内事例）の状況（累積）（無症状病原体保有者を除く）（単位：人）4月4日12：00時点',
       legend: { position: 'top', maxLines: 3 },
       hAxis: {
         title: '陽性者数\n暫定値（順次アップデートされるため、数値が変動する）',
@@ -121,7 +121,7 @@
     var data;
     const options = {
       legend: { position: 'top', maxLines: 3 },
-      title: '東京都の陽性者の年代別(4月2日20:00更新情報)',
+      title: '東京都の陽性者の年代別(4月4日20:30更新情報)',
       hAxis: {
         title: '日付\n暫定値（順次アップデートされるため、数値が変動する）',
         slantedText: true,
