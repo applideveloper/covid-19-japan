@@ -121,7 +121,7 @@
     var data;
     const options = {
       legend: { position: 'top', maxLines: 3 },
-      title: '年齢階級別陽性者数(4月3日18:00更新情報)',
+      title: '日本の年齢階級別陽性者数(4月3日18:00更新情報)',
       hAxis: {
         title: '年代\n暫定値（順次アップデートされるため、数値が変動する）',
         slantedText: true,
